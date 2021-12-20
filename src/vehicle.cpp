@@ -15,7 +15,7 @@ Vehicle *Vehicle::instance = 0;
 void Vehicle::setup(VehicleData vehicleSpecification, ServerData vehicleServer) {
     m_vehicleServer = new UdpServer(vehicleServer);
     m_vehicleSteering = new ServoMotor(vehicleSpecification.SERVO_GPIO_PIN);
-    // m_vehicleMotor = DCMotor(vehicleSpecification.);
+    m_vehicleMotor = new DCMotor();
 }
 
 

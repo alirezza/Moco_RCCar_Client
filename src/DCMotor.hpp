@@ -5,9 +5,10 @@
 
 class DCMotor {
 public:
+    DCMotor();
     void setup();
     bool rotate(int speed, bool direction);
-    int toPWM(int value);
+    
 
 private:
     // int member variables

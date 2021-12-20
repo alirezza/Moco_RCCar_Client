@@ -1,6 +1,7 @@
 #include "WiFiConnection.hpp"
 
 WiFiSetup::WiFiSetup(const char* SSID, const char* PW, const bool mode) {
+    
     if (mode) {
         // setup ESP8266 as WiFi Access Point
         WiFi.mode(WIFI_STA);
@@ -15,7 +16,7 @@ WiFiSetup::WiFiSetup(const char* SSID, const char* PW, const bool mode) {
     } else {
         // connecting to WiFi Router
         WiFi.begin(SSID, PW);
-        Serial.print('Connecting'); 
+        Serial.print("Connecting"); 
         while (WiFi.status() != WL_CONNECTED) {
         Serial.print('.');
         delay(500);

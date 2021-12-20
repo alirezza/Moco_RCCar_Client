@@ -1,20 +1,30 @@
 #include "DCMotor.hpp"
 
-#define MOTOR_POWER D1
-#define MOTOR_DIRECTION D3
+#define  MOTORPINJUMPER 12
+#define MOTORPINFORWARD 13
+#define MOTORPINBACK 15
+
+DCMotor::DCMotor(){}
+
 
 void DCMotor::setup() {
-    pinMode(MOTOR_POWER, OUTPUT);  // D1
-    pinMode(MOTOR_DIRECTION, OUTPUT);  // D3
+pinMode(MOTORPINJUMPER, OUTPUT);
+pinMode(MOTORPINFORWARD, OUTPUT);
+pinMode(MOTORPINBACK, OUTPUT);
 }
+
 
 
 bool DCMotor::rotate(int speed, bool direction) {
-    analogWrite(MOTOR_POWER, toPWM(speed));
-    digitalWrite(MOTOR_DIRECTION, direction);
+    if(direction){
+    analogWrite(MOTORPINJUMPER, speed);
+    analogWrite(MOTORPINFORWARD, speed);
+    
+    }else{
+    analogWrite(MOTORPINJUMPER, speed);
+    analogWrite(MOTORPINBACK, speed);
+    }
+
     return true;
 }
 
-int DCMotor::toPWM(int value) {
-    return map(value, 0, 100, 0, 255);
-}
