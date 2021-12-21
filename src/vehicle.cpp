@@ -28,7 +28,7 @@ void Vehicle::setup(VehicleData vehicleSpecification, ServerData vehicleServer) 
 
 void Vehicle::maneuver() {
     DrivingData newManeuver = m_vehicleServer->returnReceivedMessage();
-    if ((m_vehicleSteering->steer(newManeuver.vehicleAngle)) && m_vehicleMotor->rotate(newManeuver.vehicleAcceleration,true)) {
+    if ((m_vehicleSteering->steer(newManeuver.vehicleAngle)) && m_vehicleMotor->rotate(newManeuver.vehicleAcceleration)) {
         m_drivingData.vehicleAcceleration = newManeuver.vehicleAcceleration;
         m_drivingData.vehicleAngle = newManeuver.vehicleAngle;
     }
