@@ -8,23 +8,25 @@ DCMotor::DCMotor(){}
 
 
 void DCMotor::setup() {
-pinMode(MOTORPINJUMPER, OUTPUT);
-pinMode(MOTORPINFORWARD, OUTPUT);
-pinMode(MOTORPINBACK, OUTPUT);
+    pinMode(MOTORPINJUMPER, OUTPUT);
+    pinMode(MOTORPINFORWARD, OUTPUT);
+    pinMode(MOTORPINBACK, OUTPUT);
 }
 
 
 
-bool DCMotor::rotate(int speed, bool direction) {
-    if(direction){
+bool DCMotor::rotate(int speed) {
+    if(speed>0){
+    digitalWrite(MOTORPINFORWARD, HIGH);
+    digitalWrite(MOTORPINBACK, LOW);
     analogWrite(MOTORPINJUMPER, speed);
-    analogWrite(MOTORPINFORWARD, speed);
     
     }else{
+    digitalWrite(MOTORPINFORWARD, LOW);
+    digitalWrite(MOTORPINBACK, HIGH);
     analogWrite(MOTORPINJUMPER, speed);
-    analogWrite(MOTORPINBACK, speed);
     }
+    return true;   
 
-    return true;
 }
 

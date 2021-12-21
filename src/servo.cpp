@@ -17,7 +17,6 @@ void ServoMotor::setup(const unsigned int SERVO_GPIO_PIN) {
 
 bool ServoMotor::steer(int new_angle) {
   if (MAX_ANGLE_LEFT >= new_angle && new_angle >= MAX_ANGLE_RIGHT) {
-    Serial.printf("new_angle of steering is %i \n" ,new_angle);
     m_servo.write(new_angle);
     return true;
   } else {

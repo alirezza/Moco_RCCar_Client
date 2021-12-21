@@ -7,7 +7,7 @@ class DCMotor {
 public:
     DCMotor();
     void setup();
-    bool rotate(int speed, bool direction);
+    bool rotate(int speed);
     
 
 private:
