@@ -1,7 +1,7 @@
 #include "servo.hpp"
 
-#define MAX_ANGLE_LEFT 147
-#define MAX_ANGLE_RIGHT -63
+#define MAX_ANGLE_LEFT 180
+#define MAX_ANGLE_RIGHT 255
 
 ServoMotor::ServoMotor(const unsigned int SERVO_GPIO_PIN) {
 
@@ -16,7 +16,7 @@ void ServoMotor::setup(const unsigned int SERVO_GPIO_PIN) {
 }
 
 bool ServoMotor::steer(int new_angle) {
-  if (MAX_ANGLE_LEFT >= new_angle && new_angle >= MAX_ANGLE_RIGHT) {
+  if (new_angle <= MAX_ANGLE_LEFT) {
     m_servo.write(new_angle);
     return true;
   } else {
