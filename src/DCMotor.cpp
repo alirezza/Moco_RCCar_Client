@@ -1,8 +1,8 @@
 #include "DCMotor.hpp"
 
-#define  MOTORPINJUMPER 12
+#define  MOTORPINJUMPER 15
 #define MOTORPINFORWARD 13
-#define MOTORPINBACK 14
+#define MOTORPINBACK 12
 
 DCMotor::DCMotor(){
     DCMotor::setup();

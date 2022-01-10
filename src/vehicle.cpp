@@ -32,7 +32,12 @@ void Vehicle::maneuver() {
         m_drivingData.vehicleAcceleration = newManeuver.vehicleAcceleration;
         m_drivingData.vehicleAngle = newManeuver.vehicleAngle;
     }
+    // for(int i = 0; i < 180; i++){
+    // m_vehicleSteering->steer(i);
+    // }
+
 }
+
 
 void Vehicle::maneuver(DrivingData newManeuver) {
     if (m_vehicleSteering->steer(newManeuver.vehicleAngle)) {

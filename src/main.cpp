@@ -1,14 +1,14 @@
 #include <Arduino.h>
 #include "vehicle.hpp"
-//#include "webserver.hpp"
+#include "speaker.hpp"
 
 #define WIFI_CLIENT 0
 #define AP 1
 #define LOCALPORT 8888
 #define SERVO_GPIO_PIN 2
-webserver web;
 VehicleData RCCarSpecification = { SERVO_GPIO_PIN };
 ServerData RCCarServer = { "ESP8266_AP", "conti_rccar", AP, LOCALPORT };
+Speaker mySpeaker;
 // Vehicle RCCar(RCCarSpecification, RCCarServer);
 
 void setup() {
@@ -16,9 +16,6 @@ void setup() {
   Serial.begin(115200);  // baud rate for serial interface communication
   Serial.println("Start NodeMCU 1.0 ESP-12E");  // start message
   Vehicle::shared()->setup(RCCarSpecification, RCCarServer);
-
-  web.setup();
-  
   // Vehicle RCCar(RCCarSpecification, RCCarServer);
   // WiFiSetup::setup("ESP8266_AP", "conti_rccar", AP);
   // myServer.setup(8888);
@@ -30,7 +27,6 @@ void loop() {
 
   // myServer.printReceivedMessage();
   // webserver();
-  web.loop();
   Vehicle::shared()->maneuver();  // do maneuver
-  
+
 }
