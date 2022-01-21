@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "vehicle.hpp"
-#include "speaker.hpp"
+//#include "speaker.hpp"
 
 #define WIFI_CLIENT 0
 #define AP 1
@@ -8,7 +8,7 @@
 #define SERVO_GPIO_PIN 2
 VehicleData RCCarSpecification = { SERVO_GPIO_PIN };
 ServerData RCCarServer = { "ESP8266_AP", "conti_rccar", AP, LOCALPORT };
-Speaker mySpeaker;
+//Speaker mySpeaker;
 // Vehicle RCCar(RCCarSpecification, RCCarServer);
 
 void setup() {

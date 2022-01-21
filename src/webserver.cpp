@@ -17,8 +17,8 @@ Arduino, Raspberry etc.
 --------------------------------------------------*/
 #include "webserver.hpp"
 
-webserver::webserver(){
-  };
+//webserver::webserver(){
+//  };
 
 void webserver:: setup() 
 { 
