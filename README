@@ -15,4 +15,13 @@ monitor_speed = 115200
 monitor_filters = time, colorize, esp8266_exception_decoder
 lib_deps = me-no-dev/ESPAsyncUDP@0.0.0-alpha+sha.697c75a025
 
+!important!
+change define values to so in Servo.h:
+#define DEFAULT_MIN_PULSE_WIDTH      0 // uncalibrated default, the shortest duty cycle sent to a servo
+#define DEFAULT_MAX_PULSE_WIDTH      2400 // uncalibrated default, the longest duty cycle sent to a servo 
+#define DEFAULT_NEUTRAL_PULSE_WIDTH  1200 // default duty cycle when servo is attached
+#define REFRESH_INTERVAL            20000 // classic default period to refresh servos in microseconds
+
+
+
 driver page: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
