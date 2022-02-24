@@ -54,8 +54,9 @@ DrivingData UdpServer::returnReceivedMessage() {
       m_receivedPacket[len] = '\0';
       int angle = splitmsg(m_receivedPacket,4,7);
       int accel = splitmsg(m_receivedPacket,0,3);
-      accel = accel * 2 + 90;
+      angle = angle * 2 + 90;
       Serial.printf("Packet message: %s\n", m_receivedPacket);
+      //Serial.println(accel);
       newData = { .vehicleAngle = angle,
                   .vehicleAcceleration = accel};
     }

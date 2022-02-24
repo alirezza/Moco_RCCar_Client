@@ -33,7 +33,8 @@ private:
     DCMotor *m_vehicleMotor;
     ServoMotor *m_vehicleSteering;
     UdpServer *m_vehicleServer;
-    DrivingData m_drivingData = { .vehicleAngle = 0 };
+    DrivingData m_drivingData = { .vehicleAngle = 0,
+                                .vehicleAcceleration = 0 };
 };
 
 #endif  // VEHICLE_HPP

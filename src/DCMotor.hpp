@@ -8,7 +8,6 @@ public:
     DCMotor();
     void setup();
     bool rotate(int speed);
-    bool rotate(int speed,bool direction);
     
 
 private:

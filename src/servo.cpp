@@ -5,7 +5,7 @@
 
 ServoMotor::ServoMotor(const unsigned int SERVO_GPIO_PIN) {
 
-  m_servo.attach(SERVO_GPIO_PIN);
+  m_servo.attach(SERVO_GPIO_PIN,0,2400);
 
 }
 

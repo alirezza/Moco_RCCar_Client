@@ -1,6 +1,6 @@
 #include "DCMotor.hpp"
 
-#define  MOTORPINJUMPER 15
+#define MOTORPINJUMPER 15
 #define MOTORPINFORWARD 13
 #define MOTORPINBACK 12
 
@@ -18,35 +18,35 @@ void DCMotor::setup() {
 
 
 bool DCMotor::rotate(int speed) {
+    if (speed > -300 && speed < 300)
+    {
 
-    if(speed>0){
-      return  rotate((unsigned int)speed,true);
-    
-    }
-    else if(speed<=0){
+        Serial.print(speed);
+        if (speed == 0)
+        {   
+            digitalWrite(MOTORPINFORWARD, LOW);
+            digitalWrite(MOTORPINBACK, LOW);
+            analogWrite(MOTORPINJUMPER,0);
+            return  true;
+        }
         
-      return  rotate(-1 * speed,false);
-      
+        if(speed>0){
+            digitalWrite(MOTORPINFORWARD, HIGH);
+            digitalWrite(MOTORPINBACK, LOW);
+            analogWrite(MOTORPINJUMPER,speed);
+        return  true;
+        
+        }
+        else if(speed<0){
+            digitalWrite(MOTORPINFORWARD, LOW);
+            digitalWrite(MOTORPINBACK, HIGH);
+            analogWrite(MOTORPINJUMPER, speed);
+        return  true;
+        
+        }
     }
        return false;
 
 }
 
-bool DCMotor::rotate(int speed, bool direction) {
-    
-    if(direction == true){
-        digitalWrite(MOTORPINFORWARD, HIGH);
-        digitalWrite(MOTORPINBACK, LOW);
-        analogWrite(MOTORPINJUMPER,speed);
-    
-    }else if(direction == false){
-         
-        digitalWrite(MOTORPINFORWARD, LOW);
-        digitalWrite(MOTORPINBACK, HIGH);
-        analogWrite(MOTORPINJUMPER, speed);
-        Serial.println(speed);
-    }
-    return true;   
-
-}
 

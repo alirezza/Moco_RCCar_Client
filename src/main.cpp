@@ -7,7 +7,7 @@
 #define LOCALPORT 8888
 #define SERVO_GPIO_PIN 2
 VehicleData RCCarSpecification = { SERVO_GPIO_PIN };
-ServerData RCCarServer = { "ESP8266_AP", "conti_rccar", AP, LOCALPORT };
+ServerData RCCarServer = { "rccar", "123456789", AP, LOCALPORT };
 //Speaker mySpeaker;
 // Vehicle RCCar(RCCarSpecification, RCCarServer);
 
